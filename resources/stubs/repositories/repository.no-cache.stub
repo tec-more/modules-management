@@ -1,0 +1,19 @@
+<?php namespace DummyNamespace;
+
+use Tukecx\Base\Core\Repositories\Eloquent\EloquentBaseRepository;
+use DummyNamespace\Contracts\DummyClassContract;
+use Tukecx\Base\Caching\Services\Traits\Cacheable;
+use Tukecx\Base\Caching\Services\Contracts\CacheableContract;
+
+class DummyClass extends EloquentBaseRepository implements DummyClassContract, CacheableContract
+{
+    use Cacheable;
+
+    protected $rules = [
+
+    ];
+
+    protected $editableFields = [
+        '*',
+    ];
+}

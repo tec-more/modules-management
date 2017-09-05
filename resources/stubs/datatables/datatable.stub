@@ -1,0 +1,61 @@
+<?php namespace DummyNamespace;
+
+use Tukecx\Base\Core\Http\DataTables\AbstractDataTables;
+
+class DummyClass extends AbstractDataTables
+{
+    protected $repository;
+
+    public function __construct(YourRepositoryContract $repository)
+    {
+        $this->repository = $repository;
+
+        $this->repository->select('id', 'created_at');
+
+        parent::__construct();
+    }
+
+    /**
+     * @return string
+     */
+    public function run()
+    {
+        $this->setAjaxUrl('fetch-data-url', 'POST');
+
+        $this
+            ->addHeading('title', 'Title', '25%');
+
+        $this
+            ->addFilter(1, form()->text('title', '', [
+                'class' => 'form-control form-filter input-sm',
+                'placeholder' => 'Search...'
+            ]));
+
+        $this->withGroupActions([
+            '' => 'Select' . '...',
+            'deleted' => 'Deleted',
+            'activated' => 'Activated',
+            'disabled' => 'Disabled',
+        ]);
+
+        $this->setColumns([
+            ['data' => 'id', 'name' => 'id', 'searchable' => false, 'orderable' => false],
+            ['data' => 'title', 'name' => 'title'],
+        ]);
+
+        return $this->view();
+    }
+
+    /**
+     * @return $this
+     */
+    protected function fetch()
+    {
+        $this->fetch = datatable()->of($this->repository)
+            ->editColumn('id', function ($item) {
+                return form()->customCheckbox([['id[]', $item->id]]);
+            });
+
+        return $this;
+    }
+}

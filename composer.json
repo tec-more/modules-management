@@ -1,0 +1,22 @@
+{
+    "name": "tec-more/modules-management",
+    "description": "Tukecx modules-management",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tukecx",
+            "email": "support@tukecx.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tukecx\\Base\\ModulesManagement\\": "src"
+        },
+        "files": [
+
+        ]
+    }
+}

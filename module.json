@@ -1,0 +1,8 @@
+{
+    "alias": "tukecx-modules-management",
+    "name": "Modules management",
+    "author": "Tukecx",
+    "description": "Manage modules, themes...",
+    "namespace": "Tukecx\\Base\\ModulesManagement",
+    "autoload": "psr-4"
+}

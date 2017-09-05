@@ -1,0 +1,18 @@
+<?php namespace DummyNamespace;
+
+use Tukecx\Base\Core\Repositories\Contracts\AbstractRepositoryContract;
+use Tukecx\Base\Core\Criterias\AbstractCriteria;
+
+class DummyClass extends AbstractCriteria
+{
+     /**
+      * @param \Tukecx\Base\Core\Models\Contracts\BaseModelContract $model
+      * @param AbstractRepositoryContract $repository
+      * @param array $crossData
+      * @return mixed
+      */
+    public function apply($model, AbstractRepositoryContract $repository, array $crossData = [])
+    {
+        return $model;
+    }
+}

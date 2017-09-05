@@ -1,0 +1,10 @@
+<?php namespace DummyNamespace;
+
+use Tukecx\Base\Caching\Repositories\Eloquent\EloquentBaseRepositoryCacheDecorator;
+
+use DummyNamespace\Contracts\DummyClassContract;
+
+class DummyClassCacheDecorator extends EloquentBaseRepositoryCacheDecorator implements DummyClassContract
+{
+
+}
